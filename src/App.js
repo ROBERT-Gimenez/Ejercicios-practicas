@@ -8,10 +8,12 @@ function App() {
   return (
     <div className="App">
       <Header/>
+      <div className='container mt-3'>
       <Routes>
       <Route path="/" element={<Login/>}></Route>
       <Route path="/listado" element={<Listado/>}></Route>
     </Routes>
+    </div>
     <Footer/>
     </div>
   );

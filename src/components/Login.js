@@ -36,21 +36,14 @@ export default function Login() {
 
         
     }
-    const titulos = ["hola" , "como" , "estas"];
   return (
-    <div>
-       { titulos.map((index,dato) => {
-        return(
-            (<div key={index}>
-                <h5>{dato}</h5>
-            </div>)
-        )})}
-        <h2>Formulario de Login</h2>
+    <div className='d-flex justify-content-center align-items-center flex-column mb-3'>
+        <h2 className='mb-auto p-2'>Formulario de Login</h2>
         <br/>
-        <form onSubmit={handleSubmit}>
-            <input type="email" name="email" placeholder='Ingrese su Email'/>
-            <input type="password" name="password" placeholder='Ingrese su Contraseña' />
-            <button type="submit" >Ingresar</button>
+        <form className='row g-3 col-md-6 ' onSubmit={handleSubmit}>
+            <input className='form-control' type="email" name="email" placeholder='Ingrese su Email'/>
+            <input className='form-control' type="password" name="password" placeholder='Ingrese su Contraseña' />
+            <button variant="primary" className='btn btn-primary mb-3' type="submit" >Ingresar</button>
             
         </form>
     </div>

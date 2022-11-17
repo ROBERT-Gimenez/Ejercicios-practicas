@@ -1,14 +1,15 @@
 import React from 'react'
 
 export default function Footer() {
+   
   return (
-    <footer>
-        <nav>
-            <ul>
-                <li><a href='http://instagram.com' rel="noopener noreferrer">IG</a></li>
+    <footer className='flex-md-column justify-content-center navbar navbar-expand-lg navbar-dark bg-dark position-absolute top-100 start-50 translate-middle' style={{width:"100%"}}>
+        <nav className='d-flex align-items-center' >
+            <ul className='list-unstyled'>
+                <li><a className='navbar-brand' href='http://instagram.com' rel="noopener noreferrer">IG</a></li>
             </ul>
         </nav>
-        <p>Copyright footer example</p>
+        <p className='navbar-brand'>Copyright footer example</p>
     </footer>
   )
 }

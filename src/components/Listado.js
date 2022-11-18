@@ -1,6 +1,8 @@
 import {useEffect, useState} from 'react';
 import { useNavigate , Link , Navigate } from 'react-router-dom'; //en react v6 para el redireccionamiento se usa el navigate y useNavigate
 import axios from 'axios';
+import swal from '@sweetalert/with-react'
+
 
 function Listado() {
     const token = localStorage.getItem('token');
@@ -22,7 +24,7 @@ function Listado() {
             const apiData = response.data;
             setMovies(apiData.results)
             console.log(moviesList)
-        })
+        }).catch(err => {swal(<h3>hubo un error , vuelve a intenrlo mas tarde</h3>)})
     } , [])
 
   return (

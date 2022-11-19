@@ -12,7 +12,7 @@ export default function Login() {
         const email = e.target.email.value;
         const password = e.target.password.value;
 
-        const regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        const regexEmail =/^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         
         if(email === "" || password === ""){
             swal(<h2>Los campos no pueden estart vacios</h2>)
@@ -37,7 +37,7 @@ export default function Login() {
         
     }
   return (
-    <div className='d-flex justify-content-center align-items-center flex-column mb-3'>
+    <div className='d-flex justify-content-center align-items-center flex-column mb-3' >
         <h2 className='mb-auto p-2'>Formulario de Login</h2>
         <br/>
         <form className='row g-3 col-md-6 ' onSubmit={handleSubmit}>

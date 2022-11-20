@@ -35,12 +35,12 @@ export default function Detalle() {
                 <img alt='movie poster'  src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} className="card-img-top" />
             </div>
             <div className='col-8'>
-                <h5>Fecha de Estreno: <strong><em>{movie.release_date}</em></strong></h5>
+                <h5>Fecha de Estreno: <strong><em>{movie.release_date.length < 0 || !movie.release_date  ? "Sin Datos..": movie.release_date}</em></strong></h5>
                 <h5>historia:</h5>
-                    <p>{movie.overview}</p>
+                    <p>{movie.overview.length < 2 ? "cargando..." : movie.overview}</p>
                 <h5>Genero:</h5>
                 <ul>
-                    { movie.genres.map(genre => <li key={genre.id}>{genre.name}</li>) }
+                    { movie.genres.length <= 0 ?<li>Datos no disponible..</li>: movie.genres.map(genre => <li key={genre.id}>{genre.name}</li>) }
                 </ul>
             </div>
             </div>

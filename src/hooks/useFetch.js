@@ -18,3 +18,16 @@ export default function useFetch(url) {
 
   return {data , loading};
 }
+
+/* useEffect(() => {
+    const busqueda = async () => {   
+        setLoading(true);
+        const data = await fetch(url);
+        const res =await data.json()
+        
+        setData(res);
+        setLoading(false);
+    }
+    busqueda()
+    
+    } , [url]); */

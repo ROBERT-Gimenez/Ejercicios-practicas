@@ -10,6 +10,7 @@
     background-color: #212529;
     color: wheat;
     -webkit-text-stroke: thin;
+    margin-top: 1rem;
 }
 
 @media (prefers-reduced-motion: no-preference) {

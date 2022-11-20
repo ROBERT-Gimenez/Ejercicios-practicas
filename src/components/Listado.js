@@ -4,7 +4,7 @@ import axios from 'axios';
 import swal from '@sweetalert/with-react'
 
 
-function Listado() {
+function Listado(prop) {
     const [moviesList , setMovies] = useState([]);
     
     const token = localStorage.getItem('token');
@@ -19,8 +19,7 @@ function Listado() {
 
 
     useEffect(() => {
-        const endpoint = 'https://api.themoviedb.org/3/discover/movie?api_key=d6c22a610db913393d63611f4566f0a1&language=es-ES&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate';
-        axios.get(endpoint)
+        axios.get(prop.url)
         .then(response => {
             const apiData = response.data;
             setMovies(apiData.results)

@@ -9,7 +9,7 @@ export default function Header() {
             <ul className='list-unstyled d-flex col-9'>
                 <li className='navbar-brand'><Link to="/">Home</Link></li>
                 <li className='navbar-brand'><Link to="/listado">Listado</Link></li>
-                <li className='navbar-brand'><Link to="/listado">Abaut</Link></li>
+                <li className='navbar-brand'><Link to="/favoritos">Favoritos</Link></li>
             </ul>
         <Buscador/>
         </nav>

@@ -36,7 +36,7 @@ function Listado(prop) {
         const Poster = movie.poster_path != null ? imgUrl :defaultImg;
         return (
             <div key={inx} className='p-1 mx-auto ' style={{width:"18rem"}}>
-            <div className="card" style={{width: "18rem" ,height: "100%"}}>
+            <div movieid={movie.id} className="card" style={{width: "18rem" ,height: "100%"}}>
                 <img alt='movie poster' src={Poster} className="card-img-top" />
                 <BtnFavorito id={movie.id}/>
                 <div className="card-body">

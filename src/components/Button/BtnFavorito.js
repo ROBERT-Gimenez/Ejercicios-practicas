@@ -17,7 +17,7 @@ const addFavs = (e) => {
   const btn = e.currentTarget;
 
   const parent = btn.parentElement;
-  const movieId = btn.getAttribute('movieid')
+  const movieId = parent.getAttribute('movieid')
   const img = parent.querySelector('img').getAttribute('src');
   const title = parent.querySelector('h5').innerText;
   const overview = parent.querySelector('p').innerText;
@@ -28,6 +28,7 @@ const addFavs = (e) => {
   let movieCheck = backMovies.find(oneMovie => {
     return oneMovie.id === movieData.id
   });
+  console.log(movieCheck)
   if(!movieCheck){ 
     backMovies.push(movieData);
     localStorage.setItem('favs' , JSON.stringify(backMovies));

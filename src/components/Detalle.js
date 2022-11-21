@@ -22,9 +22,11 @@ export default function Detalle() {
             setMovie(apiData)
             console.log(apiData)
         }).catch(err => {swal(<h3>hubo un error , vuelve a intenrlo mas tarde</h3>)})
-    } , [movieId])
+    } , [])
+
+    const defaultImg = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png"
   return (
-      <>
+      <main /* style={{backgroundImage: `url('https://image.tmdb.org/t/p/w500/${movie.backdrop_path}')`}} */>
         {!token && <Navigate to="/" /> }
         {!movie && <p>cargando...</p>}
         {movie && (
@@ -32,7 +34,7 @@ export default function Detalle() {
             <h2>Titulo:  <em>{movie.title}</em></h2>
             <div className='row'>
             <div className='col-4'>
-                <img alt='movie poster'  src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} className="card-img-top" />
+                <img alt='movie poster'  src={movie.poster_path != null ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` :defaultImg} className="card-img-top" />
             </div>
             <div className='col-8'>
                 <h5>Fecha de Estreno: <strong><em>{movie.release_date.length < 0 || !movie.release_date  ? "Sin Datos..": movie.release_date}</em></strong></h5>
@@ -45,6 +47,6 @@ export default function Detalle() {
             </div>
             </div>
         </>)}
-    </>
+    </main>
   )
 }

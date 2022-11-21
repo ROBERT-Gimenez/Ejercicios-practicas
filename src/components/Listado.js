@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react';
 import {Link , Navigate } from 'react-router-dom'; //en react v6 para el redireccionamiento se usa el navigate y useNavigate
 import axios from 'axios';
 import swal from '@sweetalert/with-react'
-
+import BtnFavorito from './Button/BtnFavorito';
 
 function Listado(prop) {
     const [moviesList , setMovies] = useState([]);
@@ -31,10 +31,14 @@ function Listado(prop) {
     {!token && <Navigate to="/" /> }
     <div className='row'>
     {moviesList.map((movie,inx) => {
+        const defaultImg = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png"
+        const imgUrl = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+        const Poster = movie.poster_path != null ? imgUrl :defaultImg;
         return (
             <div key={inx} className='p-1 mx-auto ' style={{width:"18rem"}}>
             <div className="card" style={{width: "18rem" ,height: "100%"}}>
-                <img alt='movie poster' src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} className="card-img-top" />
+                <img alt='movie poster' src={Poster} className="card-img-top" />
+                <BtnFavorito id={movie.id}/>
                 <div className="card-body">
                     <h5 className="card-title">{movie.title.substring(0 , 16)}..</h5>
                     <p className="card-text">{movie.overview.substring(0 , 90)}..</p>

@@ -18,6 +18,7 @@ const addFavs = (e) => {
 
   const parent = btn.parentElement;
   const movieId = parent.getAttribute('movieid')
+  console.log(movieId)
   const img = parent.querySelector('img').getAttribute('src');
   const title = parent.querySelector('h5').innerText;
   const overview = parent.querySelector('p').innerText;
@@ -36,7 +37,7 @@ const addFavs = (e) => {
     btn.classList.add('like');
   }else {
     let newList = backMovies.filter(oneMovie => {
-      return oneMovie.id != movieData.id
+      return oneMovie.id !== movieData.id
     });
     localStorage.setItem('favs' , JSON.stringify(newList))
     console.log(`se elimino ${movieData.title}`)

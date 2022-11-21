@@ -17,13 +17,13 @@ function Listado(prop) {
         }
     } , [])  */
 
-
     useEffect(() => {
         axios.get(prop.url)
         .then(response => {
             const apiData = response.data;
             setMovies(apiData.results)
         }).catch(err => {swal(<h3>hubo un error , vuelve a intenrlo mas tarde</h3>)})
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     } , [moviesList])
 
   return (

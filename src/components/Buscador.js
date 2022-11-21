@@ -1,6 +1,6 @@
 import React from 'react';
 import swal from '@sweetalert/with-react';
-import { useNavigate , Navigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom'; 
 
 export default function Buscador() {
     const history = useNavigate()

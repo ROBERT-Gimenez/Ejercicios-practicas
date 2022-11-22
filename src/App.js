@@ -9,7 +9,6 @@ import Resultado from './components/Resultado';
 import Favoritos from './components/Favoritos';
 import {useState , useEffect} from 'react'
 
-
 function App() {
 
 const [favoritos , setFavoritos] = useState([])
@@ -20,8 +19,8 @@ const [favoritos , setFavoritos] = useState([])
           const favsArray = JSON.parse(favsLocal);
           setFavoritos(favsArray);
         }
-      } , [])
-      
+      } , []) 
+   
  //Verificamos is hay peliculas listadas   
   let backMovies;
   if(favoritos == null){
@@ -63,9 +62,9 @@ const [favoritos , setFavoritos] = useState([])
     console.log(`se elimino ${movieData.title}`)
     setFavoritos(newList);
     btn.classList.remove('like')
+  } 
   }
-
-}
+  
   const endpoint ='https://api.themoviedb.org/3/discover/movie?api_key=d6c22a610db913393d63611f4566f0a1&language=es-ES&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate';
 
   return (

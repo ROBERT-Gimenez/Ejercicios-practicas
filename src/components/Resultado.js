@@ -1,7 +1,7 @@
 import React from 'react'
 import Listado from './Listado';
 
-export default function Resultado(){
+export default function Resultado({addFavs}){
 
     let query = new URLSearchParams(window.location.search);
     let keyword = query.get('keyword');
@@ -10,7 +10,7 @@ export default function Resultado(){
     return (
     <>
         Resultado de Busqueda de: {keyword}
-         <Listado url={ruta}/>
+         <Listado addFavs={addFavs} url={ruta}/>
      </>
   )
 }

@@ -38,4 +38,9 @@
 .like{
   color: red;
 }
+.count-heart{
+  position: relative;
+  right: 13%;
+  font-size: 13px;
+}
 

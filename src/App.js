@@ -19,17 +19,19 @@ const [favoritos , setFavoritos] = useState([])
           const favsArray = JSON.parse(favsLocal);
           setFavoritos(favsArray);
         }
-      } , []) 
+      } , [setFavoritos]) 
    
- //Verificamos is hay peliculas listadas   
+ //Verificamos is hay peliculas listadas 
+  const addOrRemove = (e) => { 
+  const favsLocal = localStorage.getItem('favs');  
   let backMovies;
-  if(favoritos == null){
+  if(favsLocal == null){
     backMovies = [];
   }else{
-    backMovies =(favoritos);
+    backMovies =JSON.parse(favsLocal);
   }
 //Tomamos los datos de la pelicula seleccionada
-  const addOrRemove = (e) => {
+  
     const btn = e.currentTarget;
     const parent = btn.parentElement;
     const movieId = parent.getAttribute('movieid')
@@ -48,9 +50,9 @@ const [favoritos , setFavoritos] = useState([])
   console.log(movieCheck)
 //Si no esta , La agregamos
   if(!movieCheck){ 
-    backMovies.push(movieData);
-    localStorage.setItem('favs' , JSON.stringify(backMovies));
+    backMovies.push(movieData)
     console.log(`se a agergado ${movieData.title}`)
+    localStorage.setItem('favs' , JSON.stringify(backMovies))
     setFavoritos(backMovies);
     btn.classList.add('like');
   }else {
@@ -64,19 +66,18 @@ const [favoritos , setFavoritos] = useState([])
     btn.classList.remove('like')
   } 
   }
-  
   const endpoint ='https://api.themoviedb.org/3/discover/movie?api_key=d6c22a610db913393d63611f4566f0a1&language=es-ES&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate';
 
   return (
     <div className="App">
-      <Header/>
+      <Header favorites={favoritos}/>
       <div className='container mt-3' style={{height:"69%"}}>
       <Routes>
       <Route path="/" element={<Login/>}></Route>
       <Route path="/listado" element={<Listado addFavs={addOrRemove} url={endpoint}/>}></Route>
       <Route path="/detalle" element={<Detalle/>}></Route>
       <Route path="/favoritos" element={<Favoritos favs ={favoritos} addFavs={addOrRemove} />}></Route>
-      <Route path="/Resultado" element={<Resultado/>}></Route>
+      <Route path="/Resultado" element={<Resultado addFavs={addOrRemove} />}></Route>
     </Routes>
     </div>
     <Footer/>

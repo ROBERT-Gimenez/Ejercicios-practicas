@@ -1,4 +1,4 @@
-import React from 'react'
+/* import React from 'react'
 
 import { AiTwotoneHeart } from 'react-icons/ai';
 
@@ -50,4 +50,4 @@ export default function BtnFavorito(prop) {
   return (
     <button movieid={prop.id} className='btn-favs' onClick={addFavs}><AiTwotoneHeart className='heart'/></button>
   )
-}
+} */

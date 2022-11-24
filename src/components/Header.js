@@ -11,8 +11,9 @@ export default function Header({favorites}) {
                 <li className='navbar-brand'><Link to="/">Home</Link></li>
                 <li className='navbar-brand'><Link to="/listado">Listado</Link></li>
                 <li className='navbar-brand'><Link to="/favoritos">Favoritos<AiTwotoneHeart className='like'/></Link><span className='count-heart'>{ favorites.length >  0 ? favorites.length : "" }</span></li>
-               
+                
             </ul>
+        
         <Buscador/>
         </nav>
     </header>

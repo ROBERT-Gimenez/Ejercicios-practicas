@@ -19,6 +19,18 @@ export default function useFetch(url) {
   return {data , loading};
 }
 
+/*---- MANERA DE LLAMARLO
+Import {useFetch} from './usefetch';
+const {data , loading} = useFetch(url);
+
+return(
+    <div>
+    <h1>{loading ? "loading .... " : data.title}
+    </div>
+)
+
+ */
+//----De manera asincrona
 /* useEffect(() => {
     const busqueda = async () => {   
         setLoading(true);

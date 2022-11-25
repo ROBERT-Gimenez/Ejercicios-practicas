@@ -3,11 +3,18 @@ import {Link , Navigate } from 'react-router-dom'; //en react v6 para el redirec
 import axios from 'axios';
 import swal from '@sweetalert/with-react'
 import { AiTwotoneHeart } from 'react-icons/ai';
-
-
+/* import {useDispatch, useSelector} from 'react-redux'
+import {selectFavorite,
+        setMovieList} from '../store/features/FavoriteSlice'
+import store from '../store/store'; */
 function Listado(prop) {
+   /*  const favsLocal = localStorage.getItem('favs');
+    const favsArray = JSON.parse(favsLocal); */
     const [moviesList , setMovies] = useState([]);
+   /*  const lista = useSelector(selectFavorite);
+    const dispatch = useDispatch(); */
     
+
     const token = localStorage.getItem('token');
     
     //Una manera de redireccionar 
@@ -27,10 +34,13 @@ function Listado(prop) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     } , [moviesList])
 
+      
+   
   return (
     <>
     {!token && <Navigate to="/" /> }
     <div className='row'>
+
     {moviesList.map((movie,inx) => {
         const defaultImg = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png"
         const imgUrl = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`

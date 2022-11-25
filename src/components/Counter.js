@@ -6,14 +6,15 @@ import {
     incrementByAmount,
     incrementAsync ,
     selectCount,
-    resetAmount } from '../store/features/counterSlice'
+    resetAmount } from '../store/Reducer/counterSlice'
 
 export default function Counter() {
 
     const count = useSelector(selectCount);
+    console.log(count)
     const dispatch = useDispatch();
     const [incrementAmount , setIncrementAmount] = useState('2');
-
+    
 
   return (
     <div>

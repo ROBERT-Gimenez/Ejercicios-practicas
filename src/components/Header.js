@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import Buscador from './Buscador';
 import { AiTwotoneHeart } from 'react-icons/ai';
+import Counter from './Counter';
 
 export default function Header({favorites}) {
   return (
@@ -15,6 +16,7 @@ export default function Header({favorites}) {
             </ul>
         
         <Buscador/>
+        <Counter/>
         </nav>
     </header>
   )

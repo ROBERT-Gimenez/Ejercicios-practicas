@@ -44,8 +44,9 @@ export default function Login() {
             <input className='form-control' type="email" name="email" placeholder='Ingrese su Email'/>
             <input className='form-control' type="password" name="password" placeholder='Ingrese su Contraseña' />
             <button variant="primary" className='btn btn-primary mb-3' type="submit" >Ingresar</button>
-            
+
         </form>
-    </div>
+{/*             <div className='containerDiv'><Modal title="Login" content="Debes iniciar sesion"/></div>
+ */}    </div>
   )
 }

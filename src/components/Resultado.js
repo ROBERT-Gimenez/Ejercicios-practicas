@@ -1,6 +1,5 @@
 import React from 'react'
 import Listado from './Listado';
-import Modal from './Modal';
 import { Navigate } from 'react-router-dom'; //en react v6 para el redireccionamiento se usa el navigate y useNavigate
 
 
@@ -12,9 +11,8 @@ export default function Resultado({addFavs}){
     
     return (
     <>
-   {/*  {!token && <div><Modal title="Login" content="Debes iniciar sesion"/></div>  } */}
-    {!token && <Navigate to="/" /> }
-        Resultado de Busqueda de: {keyword}
+        {!token && <Navigate to="/" /> }
+         Resultado de Busqueda de: {keyword}
          <Listado addFavs={addFavs} url={ruta}/>
      </>
   )

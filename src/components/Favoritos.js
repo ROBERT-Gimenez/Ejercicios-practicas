@@ -1,9 +1,8 @@
-import { AiTwotoneHeart } from 'react-icons/ai';
-
-
-export default function Favoritos({favs,addFavs}) {
- 
-
+import { useSelector } from 'react-redux';
+import { selectFavorite } from '../store/Reducer/FavoriteSlice';
+import BtnFavorito from './Button/BtnFavorito';
+export default function Favoritos({addFavs}) {
+    const favs = useSelector(selectFavorite)
   return (
     <div>
         {favs.length <= 0 && <h2>No Seleccionaste Nada Aun ...</h2>}
@@ -17,7 +16,7 @@ export default function Favoritos({favs,addFavs}) {
                         <div  className='col-3' key={indx}>
                             <div movieid={movie.id} className='card my-4'>
                                 <img src={movie.img} className='card-img-top' alt='...'/>
-                                <button movieid={movie.id} className='btn-favs' onClick={addFavs}><AiTwotoneHeart className='heart'/></button>
+                                <BtnFavorito movieid={movie.id}/>
                                 <div className='card-body'>
                                     <h5 className='card-title'>{movie.title}</h5>
                                     <p className='card-text'>{movie.overview}</p>

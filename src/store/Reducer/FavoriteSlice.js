@@ -9,15 +9,16 @@ const favsArray = JSON.parse(favsLocal);
 export const FavoriteSlice = createSlice({
     name:'favorites',
     initialState:{
-        value:[favsArray],
+        value:favsArray,
     },
     reducers:{
         setMovieList:(state , action) => {
-            state.value += action.payload
+            state.value = action.payload
         }
     },
 })
 export const {setMovieList } = FavoriteSlice.actions
 
 export const selectFavorite = (state) => state.favorites.value;
+
 export default FavoriteSlice.reducer

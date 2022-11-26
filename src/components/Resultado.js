@@ -13,7 +13,7 @@ export default function Resultado({addFavs}){
     <>
         {!token && <Navigate to="/" /> }
          Resultado de Busqueda de: {keyword}
-         <Listado addFavs={addFavs} url={ruta}/>
+         <Listado url={ruta}/>
      </>
   )
 }

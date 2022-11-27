@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import Buscador from './Buscador';
 import { AiTwotoneHeart } from 'react-icons/ai';
-import Counter from './Counter';
+/* import Counter from './Counter'; */
 import { useSelector } from 'react-redux';
 import { selectFavorite } from '../store/Reducer/FavoriteSlice';
 export default function Header() {
@@ -19,7 +19,7 @@ export default function Header() {
             </ul>
         
         <Buscador/>
-        <Counter/>
+        {/* <Counter/> */}
         </nav>
     </header>
   )

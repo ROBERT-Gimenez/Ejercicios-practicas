@@ -36,7 +36,7 @@ function Listado(prop) {
             <div movieid={movie.id} className="card" style={{width: "18rem" ,height: "100%"}}>
                 <img alt='movie poster' src={Poster} className="card-img-top" />
 {/*                 <button movieid={movie.id} className='btn-favs' onClick={prop.addFavs}><AiTwotoneHeart className='heart'/></button>
- */}                <BtnFavorito movieid={movie.id}  />
+ */}                <BtnFavorito movieid={movie.id}  id={movie.id} />
                 <div className="card-body">
                     <h5 className="card-title">{movie.title.substring(0 , 16)}..</h5>
                     <p className="card-text">{movie.overview.substring(0 , 90)}..</p>

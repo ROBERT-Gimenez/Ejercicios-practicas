@@ -16,7 +16,7 @@ export default function Favoritos({addFavs}) {
                         <div  className='col-3' key={indx}>
                             <div movieid={movie.id} className='card my-4'>
                                 <img src={movie.img} className='card-img-top' alt='...'/>
-                                <BtnFavorito movieid={movie.id}/>
+                                <BtnFavorito movieid={movie.id} id={movie.id}/>
                                 <div className='card-body'>
                                     <h5 className='card-title'>{movie.title}</h5>
                                     <p className='card-text'>{movie.overview}</p>

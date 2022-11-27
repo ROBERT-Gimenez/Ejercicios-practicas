@@ -1,12 +1,12 @@
 import { AiTwotoneHeart } from 'react-icons/ai';
-import { useSelector , useDispatch } from 'react-redux';
-import { setMovieList , selectFavorite} from '../../store/Reducer/FavoriteSlice';
-
+import { useDispatch } from 'react-redux';
+import { setMovieList } from '../../store/Reducer/FavoriteSlice';
 
 export default function BtnFavorito(prop) {
 const favsMovies = localStorage.getItem('favs');
-const movieStore = useSelector(selectFavorite);
 const dispatch = useDispatch();
+
+
  //Verificamos is hay peliculas listadas 
 let backMovies;
 if(favsMovies == null){
@@ -14,7 +14,18 @@ if(favsMovies == null){
 }else{
   backMovies = JSON.parse(favsMovies);
 }
- 
+
+
+const moviesSelected = (id) => {
+  let movieCheck = backMovies.find(movie => {
+  // eslint-disable-next-line
+  return movie.id == id;})
+  if(movieCheck){
+    return "like"
+  }else{
+    return"heart"
+  }
+}
 const addFavs = (e) => {
 //Tomamos los datos de la pelicula seleccionada
   const btn = e.currentTarget;
@@ -51,26 +62,11 @@ const addFavs = (e) => {
   }
   
 }
-window.addEventListener("load", () => {
-console.log("gokasasd")
-  
-})
-const heart = (e) => {
-  console.log(e.currentTarget)
-  const btn = e.currentTarget;
-  const parent = btn.parentElement;
-  const movieId = parent.getAttribute('movieid');
-  let movieCheck = movieStore.find(movie => {
-    return movie.id === movieId;})
-    if (movieCheck){
-      console.log("agregado")
-      btn.classList.add('like')
-    }else{ btn.classList.remove('like')}
-  
-}
+
+
 
 
 return (
-  <button movieid={prop.id} onLoad={heart} className="btn-favs"  onClick={addFavs}><AiTwotoneHeart className='heart'/></button>
+  <button movieid={prop.id} className="btn-favs"  onClick={addFavs}><AiTwotoneHeart className={moviesSelected(prop.id)}/></button>
   )
 } 
